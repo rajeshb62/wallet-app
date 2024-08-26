@@ -17,16 +17,22 @@
 //   return <ContractComponent contract={contract} />;
 // }
 
+import { ContractComponent } from './contract';
+import { useContract } from '../hooks/useContract';
+
 import React from 'react';
-import AztecIntegration from '../AztecIntegration';
-import AztecInfo from '../AztecInfo';
+import AztecIntegration from '../AztecIntegration'; // Change this line
+import { CreateAccount } from './CreateAccount';
+
 
 
 export const Home: React.FC = () => {
   return (
-    <div>
-      <h1>Hello world!</h1>
+    <div className="App">
+      <h1>Aztec Wallet</h1>
+      <CreateAccount />
       <AztecIntegration />
     </div>
   );
 };
+

@@ -30,6 +30,22 @@ It should ask you some questions about your project, install and run the Sandbox
 ```bash
 npx create-aztec-app sandbox --help
 ```
+## Version incompatibility
+Using versions of @aztec (accounts/aztec.js/builder/circuit-types) of 0.50.1 breaks codegen for the app with error:
+yarn run v1.22.19
+$ ${AZTEC_BUILDER:-aztec-builder} codegen src/contracts/target -o artifacts
+aztec:builder: Error running command
+aztec:builder: Error: Could not generate contract artifact for MinimalBox: Error: Selector must fit in 4 bytes (got value 4.165361705397761e+28).
+    at generateContractArtifact (file:///root/workspace/node_modules/@aztec/types/dest/abi/contract_artifact.js:228:15)
+    at loadContractArtifact (file:///root/workspace/node_modules/@aztec/types/dest/abi/contract_artifact.js:50:12)
+    at generateFromNoirAbi (file:///root/workspace/node_modules/@aztec/builder/dest/contract-interface-gen/codegen.js:42:22)
+    at async generateCode (file:///root/workspace/node_modules/@aztec/builder/dest/contract-interface-gen/codegen.js:20:26)
+    at async Command.<anonymous> (file:///root/workspace/node_modules/@aztec/builder/dest/index.js:11:9)
+    at async Command.parseAsync (/root/workspace/node_modules/@aztec/builder/node_modules/commander/lib/command.js:1092:5)
+    at async main (file:///root/workspace/node_modules/@aztec/builder/dest/bin/cli.js:9:5)
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
 
 ## More information
 
